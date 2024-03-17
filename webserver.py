@@ -1,5 +1,3 @@
-# Todo: Add logging, migrate properties to attributes, improve _get_response method
-
 import network
 import random
 import socket
@@ -103,11 +101,3 @@ class WebServer():
         if (unset_options := [option for option in args if not hasattr(self, option)]):
             msg = f'The following configuration options are required, but have not been set: {unset_options}'
             raise ConfigurationError(msg)
-
-def main():
-    webserver = WebServer('webpage/')
-    webserver.config(html_path='index.html', ssid='Pico Feeder', password='password')
-    webserver.start()
-
-if __name__ == '__main__':
-    main()
